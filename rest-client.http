@@ -1,0 +1,79 @@
+GET http://localhost:3000/songs
+
+### Get all one song
+GET http://localhost:3000/songs/1
+
+### Create a new song
+POST http://localhost:3000/songs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkdpbGRhX0t1bmRlQGhvdG1haWwuY29tIiwidXNlcklkIjozLCJhcnRpc3RJZCI6MSwiaWF0IjoxNzM4ODY3Njk4LCJleHAiOjE3Mzg5NTQwOTh9.ZmuO86optQKfKbGjWoHyIBRWW0kBhb-9BOBwVFt1zRA
+
+{
+  "title": "Love again",
+  "artists": [2],
+  "releasedDate": "2023-09-30",
+  "duration": "02:45",
+  "lyrics": "Sby, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+### Update a song
+PUT http://localhost:3000/songs/2
+Content-Type: application/json
+
+{
+  "title": "Lasting Love",
+  "artists": [1,2],
+  "releasedDate": "2022-09-30",
+  "duration": "03:45",
+  "lyrics": "Sby, you're my adrenaline. Brought out this other side of me You don't even know Controlling my whole anatomy, oh Fingers are holding you right at the edge You're slipping out of my hands Keeping my secrets all up in my head I'm scared that you won't want me back, oh I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya I wish that I was honest when I had you I shoulda told you that I wanted you for me I dance to every song like it's about ya I drink 'til I kiss someone who looks like ya"
+}
+### delete a song
+DELETE http://localhost:3000/songs/1
+
+### Pagination test
+http://localhost:3000/songs/?page=2&limit=2
+
+### Sighup user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "firstName": "Peter",
+  "lastName": "Doe",
+  "email": "john123@gmail.com",
+  "password": "123456"
+}
+### Login user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "Gilda_Kunde@hotmail.com",
+  "password": "123456"
+}
+### API KEY John13: 4dce6779-a4e2-492c-85b5-2e136b2e6a21
+## Access TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xQGdtYWlsLmNvbSIsInN1YiI6NCwiaWF0IjoxNzM4MTcwOTY3LCJleHAiOjE3MzgyNTczNjd9.Tf_hz9EWyLj4hNXxx_riLNlzeGFHl1OCglCvqIkTU_4
+
+### Get profile 
+
+GET http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xMjNAZ21haWwuY29tIiwidXNlcklkIjozLCJhcnRpc3RJZCI6MiwiaWF0IjoxNzM4NjA1MjU3LCJleHAiOjE3Mzg2OTE2NTd9.JK8_X7GTQGaiSZ4x0YLqljr8cSdXFZTsuPME7nA9aH8
+### enable 2FA
+GET http://localhost:3000/auth/enable-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xQGdtYWlsLmNvbSIsInVzZXJJZCI6NCwiYXJ0aXN0SWQiOjMsImlhdCI6MTczODQ4Nzk2NCwiZXhwIjoxNzM4NTc0MzY0fQ.xSQWGpmGg1JtjK5N9HBHQ4OqynufCp3H75z5j9QL4YY
+
+
+### enable 2FA
+POST http://localhost:3000/auth/validate-2fa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4xQGdtYWlsLmNvbSIsInVzZXJJZCI6NCwiYXJ0aXN0SWQiOjMsImlhdCI6MTczODQ4Nzk2NCwiZXhwIjoxNzM4NTc0MzY0fQ.xSQWGpmGg1JtjK5N9HBHQ4OqynufCp3H75z5j9QL4YY
+Content-Type: application/json
+
+{
+  "token": "744897"
+}
+
+### Access profile route
+GET http://localhost:3000/auth/profile
+Authorization: Bearer c0b0d416-4b7f-44e5-a371-59ff6ae7c485
+
+### test env variable
+GET http://localhost:3000/auth/test
